@@ -2,12 +2,12 @@
 
 ## Immediate Actions (Today)
 
-### 1. GitHub Setup (30 minutes)
-- [ ] Create new repo: github.com/leviathofnoesia/abyssnotes
-- [ ] Push current code
-- [ ] Add proper license (MIT in LICENCE.md)
-- [ ] Create first release (v1.0.0)
-- [ ] Add release notes to release
+### 1. GitHub Setup (COMPLETED ✅)
+- [x] Create new repo: github.com/leviathofnoesia/abyssnotes
+- [x] Push current code
+- [x] Add proper license (MIT in LICENCE.md)
+- [x] Create first release (v1.0.0)
+- [x] Add release notes to release
 
 ### 2. Landing Page (2 hours)
 - [ ] Create simple landing page (can use AbyssNotes itself!)
@@ -18,7 +18,7 @@
 - [ ] Add "Why AbyssNotes?" section
 
 ### 3. One-Command Install (1 hour)
-- [ ] Test install.sh on Linux
+- [x] Test install.sh on Linux
 - [ ] Create install.ps1 for Windows
 - [ ] Create one-line curl command for README
 - [ ] Document uninstall process
