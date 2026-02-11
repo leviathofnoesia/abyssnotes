@@ -1,0 +1,85 @@
+{
+  "todo": [
+    {
+      "id": 1,
+      "title": "Apply to Nethermind (4 AI × Web3 roles)",
+      "tags": ["urgent", "revenue"],
+      "priority": "high",
+      "estimatedTime": "45 minutes",
+      "dueDate": "Feb 15, 2026"
+    },
+    {
+      "id": 2,
+      "title": "Manually redeploy AgentCompiler API on Railway",
+      "tags": ["tech"],
+      "priority": "medium",
+      "estimatedTime": "5 minutes",
+      "dueDate": "Feb 12, 2026"
+    },
+    {
+      "id": 3,
+      "title": "Send 5-10 cold outreach emails",
+      "tags": ["revenue"],
+      "priority": "high",
+      "estimatedTime": "1 hour",
+      "dueDate": "Feb 15, 2026"
+    },
+    {
+      "id": 4,
+      "title": "Post to Ask HN 'Who wants to be hired?'",
+      "tags": ["revenue"],
+      "priority": "medium",
+      "estimatedTime": "20 minutes",
+      "dueDate": "Feb 15, 2026"
+    }
+  ],
+  "progress": [
+    {
+      "id": 5,
+      "title": "toku.agency - Browse and bid on jobs",
+      "tags": ["revenue"],
+      "priority": "high",
+      "estimatedTime": "Ongoing"
+    },
+    {
+      "id": 6,
+      "title": "Sanctuary (Nov Pax) - Complete and launch",
+      "tags": ["revenue"],
+      "priority": "medium",
+      "estimatedTime": "2-3 weeks"
+    }
+  ],
+  "done": [
+    {
+      "id": 7,
+      "title": "Build Workspace Viewer (Obsidian-like UI)",
+      "tags": ["tech"],
+      "priority": "medium",
+      "completedDate": "Feb 11, 2026"
+    },
+    {
+      "id": 8,
+      "title": "Register on toku.agency marketplace",
+      "tags": ["revenue"],
+      "priority": "high",
+      "completedDate": "Feb 11, 2026"
+    },
+    {
+      "id": 9,
+      "title": "Fix AgentCompiler API TypeScript errors",
+      "tags": ["tech"],
+      "priority": "high",
+      "completedDate": "Feb 10, 2026"
+    }
+  ],
+  "blocked": [
+    {
+      "id": 10,
+      "title": "UQPAY partnership outreach (needs Leviath to send)",
+      "tags": ["revenue"],
+      "priority": "urgent",
+      "blocker": "Requires Leviath to send email",
+      "dueDate": "Feb 10, 2026 (expired)"
+    }
+  ]
+}

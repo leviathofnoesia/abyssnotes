@@ -1,0 +1,30 @@
+{
+  "name": "abyssnotes",
+  "version": "1.0.0",
+  "description": "AbyssNotes - Obsidian-like workspace viewer with Kanban, Graph, and Mission Control",
+  "main": "abyssnotes.js",
+  "bin": {
+    "abyssnotes": "./abyssnotes.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "cli": "node abyssnotes.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "marked": "^9.1.6",
+    "highlight.js": "^11.9.0",
+    "d3": "^7.9.0",
+    "commander": "^11.1.0"
+  },
+  "keywords": [
+    "obsidian",
+    "markdown",
+    "kanban",
+    "graph",
+    "workspace",
+    "notes"
+  ],
+  "author": "AbyssWalker",
+  "license": "MIT"
+}
