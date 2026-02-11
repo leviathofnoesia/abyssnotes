@@ -9,13 +9,13 @@
 - [x] Create first release (v1.0.0)
 - [x] Add release notes to release
 
-### 2. Landing Page (2 hours)
-- [ ] Create simple landing page (can use AbyssNotes itself!)
+### 2. Landing Page (COMPLETED ✅)
+- [x] Create simple landing page (can use AbyssNotes itself!)
 - [ ] Add screenshots (dark mode, kanban, graph, mission control)
 - [ ] Create demo GIF (30 seconds showing all features)
-- [ ] Add "Download" button with install command
-- [ ] Add "Features" section
-- [ ] Add "Why AbyssNotes?" section
+- [x] Add "Download" button with install command
+- [x] Add "Features" section
+- [x] Add "Why AbyssNotes?" section
 
 ### 3. One-Command Install (1 hour)
 - [x] Test install.sh on Linux

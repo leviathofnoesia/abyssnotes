@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbyssNotes - Local-First Personal Knowledge Base</title>
+    <meta name="description" content="AbyssNotes combines Obsidian-like markdown notes, Kanban boards, graph visualization, and mission control into one local-first productivity tool.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #181825;
+            --bg-secondary: #313244;
+            --accent-purple: #cba6f7;
+            --accent-blue: #89b4fa;
+            --text-primary: #cdd6f4;
+            --text-secondary: #a6adc8;
+            --success: #a6e3a1;
+            --warning: #f9e2af;
+            --danger: #f38ba8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+        }
+
+        .logo span {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-purple);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .tagline {
+            font-size: 0.9rem;
+            color: var(--accent-purple);
+            margin-bottom: 10px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(203, 166, 247, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 2px solid var(--accent-purple);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 80px 0;
+            margin-bottom: 80px;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 16px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-purple);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Why Section */
+        .why {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+            margin-bottom: 80px;
+        }
+
+        .why h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .why-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+
+        .why-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Demo Section */
+        .demo {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .demo h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .demo-placeholder {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 60px;
+            border: 2px dashed var(--accent-purple);
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .download h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .download .install-command {
+            background: var(--bg-secondary);
+            padding: 20px 40px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        /* Platform Icons */
+        .platforms {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .platform-icon {
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-purple);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features h2,
+            .why h2,
+            .demo h2,
+            .download h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="container">
+        <div class="logo">Abyss<span>Notes</span></div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#why">Why AbyssNotes?</a>
+            <a href="#download">Download</a>
+            <a href="https://github.com/leviathofnoesia/abyssnotes" target="_blank">GitHub</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="tagline">Your brain, your data, your rules.</div>
+            <h1>A Local-First<br>Personal Knowledge Base</h1>
+            <p>Combine Obsidian-like markdown notes, Kanban boards, graph visualization, and mission control in one privacy-first productivity tool.</p>
+            <div class="cta-buttons">
+                <a href="#download" class="btn btn-primary">Download Free</a>
+                <a href="https://github.com/leviathofnoesia/abyssnotes" target="_blank" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Everything You Need</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">📄</div>
+                    <h3>Obsidian-Style Notes</h3>
+                    <p>Write and organize your thoughts with markdown. Full syntax highlighting, real-time preview, and file tree navigation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📋</div>
+                    <h3>Kanban Boards</h3>
+                    <p>Manage tasks with 4 columns: To Do, In Progress, Done, and Blocked. Color-coded priorities, tags, and drag-and-drop cards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔗</div>
+                    <h3>Graph Visualization</h3>
+                    <p>See connections between your files with an interactive force-directed graph. Drag nodes, zoom, and explore your workspace structure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>Mission Control</h3>
+                    <p>Track metrics, milestones, and feature checklists in one dashboard. Perfect for founders tracking revenue, launches, and progress.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>100% local. No cloud sync, no data collection, no telemetry. Your data stays on your machine, period.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Built with Node.js and Express. Instant file search, real-time rendering, and zero latency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why" id="why">
+        <div class="container">
+            <h2>Why AbyssNotes?</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <h3>🦞 Made by Founders</h3>
+                    <p>Built by someone who's been there. Track revenue, launches, and projects in one place.</p>
+                </div>
+                <div class="why-item">
+                    <h3>💡 No More Apps</h3>
+                    <p>Stop juggling 5 different tools. Notes, tasks, graphs, mission control - all in one.</p>
+                </div>
+                <div class="why-item">
+                    <h3>🎯 Open Source</h3>
+                    <p>MIT License. Modify it, fork it, improve it. Your data stays yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <div class="container">
+            <h2>See It In Action</h2>
+            <div class="demo-placeholder">
+                <p>🎮 Interactive demo coming soon</p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Check out the GitHub repo for now</p>
+                <a href="https://github.com/leviathofnoesia/abyssnotes" target="_blank" class="btn btn-secondary" style="margin-top: 20px;">Open Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="download" id="download">
+        <div class="container">
+            <h2>Start Using AbyssNotes Today</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">It's free, open source, and stays on your machine.</p>
+            <div class="platforms">
+                <span class="platform-icon">🐧</span>
+                <span class="platform-icon">🍎</span>
+                <span class="platform-icon">🪟</span>
+            </div>
+            <div class="install-command">
+                npm install -g abyssnotes
+            </div>
+            <div class="cta-buttons">
+                <a href="https://github.com/leviathofnoesia/abyssnotes/releases/download/v1.0.0/abyssnotes-linux" target="_blank" class="btn btn-primary">Download for Linux</a>
+                <a href="https://github.com/leviathofnoesia/abyssnotes/releases/download/v1.0.0/abyssnotes-mac" target="_blank" class="btn btn-primary">Download for macOS</a>
+                <a href="https://github.com/leviathofnoesia/abyssnotes/releases/download/v1.0.0/abyssnotes-windows.exe" target="_blank" class="btn btn-primary">Download for Windows</a>
+            </div>
+            <p style="color: var(--text-secondary); margin-top: 20px; font-size: 0.9rem;">
+                <a href="https://github.com/leviathofnoesia/abyssnotes" target="_blank">Source code available on GitHub</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Made with 🦞 by <a href="https://github.com/leviathofnoesia" target="_blank">Leviath</a></p>
+            <p style="margin-top: 10px;">MIT License - Open Source</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/leviathofnoesia/abyssnotes" target="_blank">GitHub</a> •
+                <a href="https://twitter.com/leviathofnoesia" target="_blank">Twitter</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
